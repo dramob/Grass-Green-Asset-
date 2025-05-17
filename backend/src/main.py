@@ -35,7 +35,7 @@ if not os.getenv("OPENAI_KEY"):
     logger.warning("OPENAI_KEY environment variable not set. LLM features will not work.")
 
 # Import the LLM certification module
-from controllers.LLMCertification import scrape_google_and_condense
+from controllers.LLMCertification import scrape_brave_and_condense as scrape_and_condense
 
 # Initialize services
 project_storage = ProjectStorageService()
@@ -339,8 +339,8 @@ async def verify_sdg_claims(
             # Extract keywords from the justification
             keywords = [w for w in claim.justification.split() if len(w) > 3][:10]
             
-            # Use the scrape_google_and_condense function
-            result = await scrape_google_and_condense(
+            # Use the Brave search and condense function
+            result = await scrape_and_condense(
                 query=query,
                 num_results=5,  # Limit to 5 results per claim for efficiency
                 sdg_goal=claim.sdgId,

@@ -10,7 +10,7 @@ import { SDGGoal } from '../types/sdg'
 const SellPage = () => {
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { isConnected } = useAuthStore()
+  const isConnected = useAuthStore(state => state.isConnected)
 
   const handleCreateListing = () => {
     navigate('/sell/new')
@@ -33,11 +33,19 @@ const SellPage = () => {
         </p>
       </div>
       
-      {isConnected ? (
+      {isConnected() ? (
         <>
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-            <Card className="p-8 hover:border-emerald-400/50 transition-colors cursor-pointer" onClick={handleCreateListing}>
-              <div className="flex flex-col items-center justify-center h-full space-y-4">
+            <Card className="p-8 hover:border-emerald-400/50 transition-colors cursor-pointer">
+              <div
+                className="flex flex-col items-center justify-center h-full space-y-4 cursor-pointer"
+                onClick={handleCreateListing}
+                role="button"
+                tabIndex={0}
+                onKeyPress={e => {
+                  if (e.key === 'Enter' || e.key === ' ') handleCreateListing()
+                }}
+              >
                 <PlusCircle className="h-16 w-16 text-emerald-400" />
                 <h2 className="text-xl font-medium text-emerald-300">{t('sell.newListing')}</h2>
                 <p className="text-center text-gray-300">

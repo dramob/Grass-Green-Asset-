@@ -38,18 +38,19 @@ The easiest way to run the application is using mock data (without requiring API
 
 To enable real SDG verification with AI:
 
-1. Get an OpenAI API key from [OpenAI](https://platform.openai.com)
+1. Get an OpenAI API key from [OpenAI](https://platform.openai.com) and a Brave Search API subscription token from Brave Search
 
 2. Set up the backend:
    ```bash
    cd backend
-   
-   # Edit .env to add your OpenAI key
-   echo "OPENAI_KEY=your_actual_key_here" >> .env
-   
+
+   # Edit .env to add your API keys
+   echo "OPENAI_KEY=your_openai_key_here" >> .env
+   echo "BRAVE_SEARCH_API_KEY=your_brave_api_key_here" >> .env
+
    # Set up the Python environment
    python setup.py
-   
+
    # Start the backend server
    .venv/bin/python src/main.py
    ```
@@ -84,6 +85,7 @@ To enable real SDG verification with AI:
 
 #### Backend (.env)
 - `OPENAI_KEY`: OpenAI API key for verification services
+- `BRAVE_SEARCH_API_KEY`: Brave Search API subscription token for web search
 - `PORT`: Port for the API server (default: 3000)
 - `XRPL_NETWORK`: XRPL network for tokenization (default: testnet)
 

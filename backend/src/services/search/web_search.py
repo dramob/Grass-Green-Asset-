@@ -9,7 +9,6 @@ from typing import List, Dict, Any, Optional
 from urllib.parse import quote_plus
 import json
 from googlesearch import search as google_search
-
 logger = logging.getLogger(__name__)
 
 class WebSearchService:
