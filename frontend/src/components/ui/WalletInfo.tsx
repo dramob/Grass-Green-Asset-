@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Copy, Check, ExternalLink } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { useWallet } from '@xrpl-wallet-standard/react'
 import { useAuthStore } from '../../store/useAuthStore'
 
 interface WalletInfoProps {
@@ -11,11 +10,10 @@ interface WalletInfoProps {
 
 const WalletInfo = ({ condensed = false, showFullInfo = false }: WalletInfoProps) => {
   const { t } = useTranslation()
-  const { wallet, status } = useWallet()
   const { walletAddress, walletProvider, walletBalance, isConnected } = useAuthStore()
   const [copied, setCopied] = useState(false)
   
-  if (!isConnected || !walletAddress) {
+  if (!isConnected() || !walletAddress) {
     return (
       <div className="text-emerald-200/70 text-sm">
         {t('wallet.notConnected')}
@@ -41,7 +39,7 @@ const WalletInfo = ({ condensed = false, showFullInfo = false }: WalletInfoProps
       <div className="bg-emerald-900/50 rounded-lg p-4 border border-emerald-700/30">
         <div className="mb-4">
           <h3 className="text-emerald-200 font-medium">{t('wallet.connected')}</h3>
-          <div className="text-emerald-400 text-sm">{walletProvider}</div>
+          <div className="text-emerald-400 text-sm">{walletProvider || 'XRPL Wallet'}</div>
         </div>
         
         <div className="mb-4">

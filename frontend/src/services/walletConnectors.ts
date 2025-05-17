@@ -7,8 +7,9 @@ export interface WalletConnector {
   name: string;
   connect(): Promise<{ address: string, provider: string, qrCodeUrl?: string }>;
   disconnect(): Promise<void>;
-  supportsQRCode?: boolean;
-  supportsDeepLink?: boolean;
+  supportsQRCode: boolean;
+  supportsDeepLink: boolean;
+  icon: string;
 }
 
 // Base class with common functionality
@@ -16,9 +17,11 @@ abstract class BaseWalletConnector implements WalletConnector {
   name: string;
   supportsQRCode: boolean = false;
   supportsDeepLink: boolean = false;
+  icon: string;
   
-  constructor(name: string) {
+  constructor(name: string, icon: string) {
     this.name = name;
+    this.icon = icon;
   }
   
   abstract connect(): Promise<{ address: string, provider: string, qrCodeUrl?: string }>;
@@ -34,12 +37,12 @@ export class XamanConnector extends BaseWalletConnector {
   private address: string | null = null;
   private xummSDK: any = null;
   private apiKey: string;
-  supportsQRCode = true;
-  supportsDeepLink = true;
   
-  constructor(apiKey: string = walletConfig.xaman.apiKey) {
-    super('Xaman');
-    this.apiKey = apiKey;
+  constructor() {
+    super('Xaman', '/wallet-icons/xumm.svg');
+    this.apiKey = walletConfig.xaman.apiKey;
+    this.supportsQRCode = true;
+    this.supportsDeepLink = true;
   }
   
   async connect(): Promise<{ address: string, provider: string, qrCodeUrl?: string }> {
@@ -75,6 +78,10 @@ export class XamanConnector extends BaseWalletConnector {
           } catch (error) {
             reject(error);
           }
+        });
+        
+        this.xummSDK.on('error', (error: any) => {
+          reject(error);
         });
         
         // Initiate the authorization flow
@@ -115,33 +122,52 @@ export class XamanConnector extends BaseWalletConnector {
 // GemWallet connector
 export class GemWalletConnector extends BaseWalletConnector {
   private address: string | null = null;
-  supportsDeepLink = true;
   
   constructor() {
-    super('GemWallet');
+    super('GemWallet', '/wallet-icons/gem.svg');
+    this.supportsDeepLink = true;
   }
   
   async connect(): Promise<{ address: string, provider: string }> {
     try {
-      // In a real implementation, we would check if GemWallet is available in window object
-      // if (typeof window !== 'undefined' && window.gemWallet) {
-      //   const response = await window.gemWallet.isConnected();
-      //   if (!response.result.isConnected) {
-      //     const connectResponse = await window.gemWallet.connect();
-      //     // Handle connection
-      //   }
-      // }
-      
-      // For demo purposes, we'll simulate a successful connection
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Create a random valid XRPL testnet address for demo
-      this.address = 'rLiooJRSKeiNfRJcDBUh54g7EPiKJ5hMqa';
+      // Check if GemWallet is available in window object
+      if (typeof window !== 'undefined' && window.gemWallet) {
+        try {
+          const isConnected = await window.gemWallet.isConnected();
+          if (!isConnected.result.isConnected) {
+            const connectResponse = await window.gemWallet.connect();
+            if (connectResponse.result && connectResponse.result.address) {
+              this.address = connectResponse.result.address;
+            } else {
+              throw new Error('Failed to retrieve address from GemWallet');
+            }
+          } else {
+            // Already connected, get the address
+            const accountResponse = await window.gemWallet.account();
+            if (accountResponse.result && accountResponse.result.address) {
+              this.address = accountResponse.result.address;
+            } else {
+              throw new Error('Failed to retrieve address from GemWallet');
+            }
+          }
+        } catch (error) {
+          console.error('GemWallet connection error:', error);
+          throw error;
+        }
+      } else {
+        // Fallback for development or when GemWallet is not available
+        if (process.env.NODE_ENV === 'development') {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          this.address = 'rLiooJRSKeiNfRJcDBUh54g7EPiKJ5hMqa';
+        } else {
+          throw new Error('GemWallet extension not installed. Please install GemWallet to continue.');
+        }
+      }
       
       console.log('Connected to GemWallet:', this.address);
       
       return {
-        address: this.address,
+        address: this.address!,
         provider: this.name
       };
     } catch (error) {
@@ -149,42 +175,87 @@ export class GemWalletConnector extends BaseWalletConnector {
       throw error;
     }
   }
-}
-
-// XUMM Wallet connector (legacy name - redirects to Xaman)
-export class XummConnector extends XamanConnector {
-  constructor(apiKey: string = 'your-xumm-api-key', apiSecret: string = 'your-xumm-api-secret') {
-    super(apiKey, apiSecret);
-    this.name = 'XUMM';
+  
+  async disconnect(): Promise<void> {
+    try {
+      if (typeof window !== 'undefined' && window.gemWallet) {
+        await window.gemWallet.disconnect();
+      }
+      this.address = null;
+      await super.disconnect();
+    } catch (error) {
+      console.error('Error disconnecting from GemWallet:', error);
+      throw error;
+    }
   }
 }
 
 // Crossmark connector
 export class CrossmarkConnector extends BaseWalletConnector {
   private address: string | null = null;
-  supportsDeepLink = true;
   
   constructor() {
-    super('Crossmark');
+    super('Crossmark', '/wallet-icons/crossmark.svg');
+    this.supportsDeepLink = true;
   }
   
   async connect(): Promise<{ address: string, provider: string }> {
     try {
-      // In a real implementation, we would use the Crossmark API
-      // For demo purposes, we'll simulate a successful connection
-      await new Promise(resolve => setTimeout(resolve, 1000));
-      
-      // Create a random valid XRPL testnet address for demo
-      this.address = 'rJb9CXAWyB4rj91VRWn96DkukG4bwdtyTg';
+      // Check if Crossmark is available in window object
+      if (typeof window !== 'undefined' && window.crossmark) {
+        try {
+          const isConnected = await window.crossmark.isConnected();
+          if (!isConnected) {
+            const connectResponse = await window.crossmark.connect();
+            if (connectResponse && connectResponse.address) {
+              this.address = connectResponse.address;
+            } else {
+              throw new Error('Failed to retrieve address from Crossmark');
+            }
+          } else {
+            // Already connected, get the address
+            const accountResponse = await window.crossmark.getAddress();
+            if (accountResponse && accountResponse.address) {
+              this.address = accountResponse.address;
+            } else {
+              throw new Error('Failed to retrieve address from Crossmark');
+            }
+          }
+        } catch (error) {
+          console.error('Crossmark connection error:', error);
+          throw error;
+        }
+      } else {
+        // Fallback for development or when Crossmark is not available
+        if (process.env.NODE_ENV === 'development') {
+          await new Promise(resolve => setTimeout(resolve, 1000));
+          this.address = 'rJb9CXAWyB4rj91VRWn96DkukG4bwdtyTg';
+        } else {
+          throw new Error('Crossmark extension not installed. Please install Crossmark to continue.');
+        }
+      }
       
       console.log('Connected to Crossmark:', this.address);
       
       return {
-        address: this.address,
+        address: this.address!,
         provider: this.name
       };
     } catch (error) {
       console.error('Failed to connect to Crossmark:', error);
+      throw error;
+    }
+  }
+  
+  async disconnect(): Promise<void> {
+    try {
+      if (typeof window !== 'undefined' && window.crossmark) {
+        await window.crossmark.disconnect();
+      }
+      this.address = null;
+      await super.disconnect();
+    } catch (error) {
+      console.error('Error disconnecting from Crossmark:', error);
       throw error;
     }
   }
@@ -196,29 +267,29 @@ export class GoogleConnector extends BaseWalletConnector {
   private xrplService = XrplService.getInstance();
   
   constructor() {
-    super('Google');
+    super('Google', '/wallet-icons/google.svg');
   }
   
   async connect(): Promise<{ address: string, provider: string }> {
     try {
-      // In a real implementation, we would:
-      // 1. Use Google OAuth API to authenticate the user
-      // 2. Check if the user already has an XRPL wallet in our database
-      // 3. If not, create a new XRPL wallet for them
+      // In a real implementation, we would use the Google OAuth API
+      // For demo purposes, we'll simulate the Google OAuth flow
       
-      // For demo purposes, we'll simulate this process
       console.log('Starting Google OAuth authentication...');
       
       // Simulate Google OAuth authentication
+      // In a real implementation, this would use the actual Google OAuth API
       await new Promise(resolve => setTimeout(resolve, 1000));
+      
+      // Generate a user ID for demo purposes
       const mockGoogleId = 'google-user-' + Math.floor(Math.random() * 10000);
       console.log('Google OAuth authenticated with ID:', mockGoogleId);
       
-      // Simulate checking if user has a wallet
+      // In a real implementation, we would check if the user already has a wallet in our database
       const hasExistingWallet = Math.random() > 0.5;
       
       if (hasExistingWallet) {
-        // Simulate retrieving existing wallet
+        // Simulate retrieving an existing wallet from a backend
         const hash = Array.from(mockGoogleId).reduce((acc, char) => acc + char.charCodeAt(0), 0);
         this.address = `rG${hash}JKLwB4rj91VRWn96DkukG4bwdtyTh`;
         console.log('Retrieved existing wallet for Google user:', this.address);
@@ -227,31 +298,27 @@ export class GoogleConnector extends BaseWalletConnector {
         console.log('Creating new XRPL wallet for Google user...');
         
         try {
-          // In a real implementation, we would:
-          // 1. Create a new wallet on the server
-          // 2. Store the wallet securely in a database associated with the user
-          // 3. Return only the public address to the client
-          
-          // For demo purposes, we'll create a test wallet
-          // This would typically be done on a server to keep the seed secure
+          // In a real implementation, this would be done securely on a server
           const wallet = await this.xrplService.createTestWallet();
           this.address = wallet.address;
           
-          // In a real app, we'd never expose this in the client
           console.log('Created new wallet for Google user:', {
             address: this.address,
-            // The seed would be stored securely on the server, not exposed
-            seedShownForDemoOnly: wallet.seed
+            // The seed would be stored securely on the server, not exposed here
           });
         } catch (error) {
           console.error('Failed to create wallet:', error);
-          // Fall back to a mock address if wallet creation fails
-          this.address = `rGoogleUser${Date.now()}FailoverAddressXRPL`;
+          // Provide a fallback address for development
+          if (process.env.NODE_ENV === 'development') {
+            this.address = `rGoogleUser${Date.now()}FailoverAddressXRPL`;
+          } else {
+            throw error;
+          }
         }
       }
       
       return {
-        address: this.address,
+        address: this.address!,
         provider: 'Google-XRPL'
       };
     } catch (error) {
@@ -259,32 +326,54 @@ export class GoogleConnector extends BaseWalletConnector {
       throw error;
     }
   }
+  
+  async disconnect(): Promise<void> {
+    // For Google OAuth, we just need to clear local state
+    this.address = null;
+    await super.disconnect();
+  }
 }
 
-// Connector factory
-export class WalletConnectorFactory {
+// Connector registry and factory
+export class WalletConnectorRegistry {
+  private static connectors: Map<string, WalletConnector> = new Map();
+  
+  static {
+    // Register default connectors
+    this.register('xaman', new XamanConnector());
+    this.register('gemwallet', new GemWalletConnector());
+    this.register('crossmark', new CrossmarkConnector());
+    this.register('google', new GoogleConnector());
+    
+    // For backward compatibility
+    this.register('xumm', this.get('xaman')!);
+  }
+  
+  static register(id: string, connector: WalletConnector): void {
+    this.connectors.set(id.toLowerCase(), connector);
+  }
+  
+  static get(id: string): WalletConnector | undefined {
+    return this.connectors.get(id.toLowerCase());
+  }
+  
+  static getAll(): WalletConnector[] {
+    return Array.from(this.connectors.values());
+  }
+  
   static getConnector(type: string): WalletConnector {
-    switch (type.toLowerCase()) {
-      case 'xumm':
-        return new XummConnector();
-      case 'xaman':
-        return new XamanConnector();
-      case 'gemwallet':
-        return new GemWalletConnector();
-      case 'crossmark':
-        return new CrossmarkConnector();
-      case 'google':
-        return new GoogleConnector();
-      default:
-        throw new Error(`Unknown wallet type: ${type}`);
+    const connector = this.get(type.toLowerCase());
+    if (!connector) {
+      throw new Error(`Unknown wallet type: ${type}`);
     }
+    return connector;
   }
   
   // Helper to check if a wallet supports QR codes
   static supportsQRCode(type: string): boolean {
     try {
       const connector = this.getConnector(type);
-      return !!connector.supportsQRCode;
+      return connector.supportsQRCode;
     } catch {
       return false;
     }
@@ -294,11 +383,21 @@ export class WalletConnectorFactory {
   static supportsDeepLink(type: string): boolean {
     try {
       const connector = this.getConnector(type);
-      return !!connector.supportsDeepLink;
+      return connector.supportsDeepLink;
     } catch {
       return false;
     }
   }
 }
 
-export default WalletConnectorFactory;
+// For TypeScript global window extensions
+declare global {
+  interface Window {
+    xumm?: any;
+    Xumm?: any;
+    gemWallet?: any;
+    crossmark?: any;
+  }
+}
+
+export default WalletConnectorRegistry;

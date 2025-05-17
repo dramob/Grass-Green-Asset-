@@ -1,7 +1,5 @@
-import { useState } from 'react'
 import { LogOut } from 'lucide-react'
 import { useTranslation } from 'react-i18next'
-import { useWallet, useDisconnect } from '@xrpl-wallet-standard/react'
 import { useAuthStore } from '../../store/useAuthStore'
 
 interface DisconnectWalletButtonProps {
@@ -9,33 +7,26 @@ interface DisconnectWalletButtonProps {
   size?: 'sm' | 'md' | 'lg';
   fullWidth?: boolean;
   iconOnly?: boolean;
+  className?: string;
 }
 
 const DisconnectWalletButton = ({
   variant = 'danger',
   size = 'md',
   fullWidth = false,
-  iconOnly = false
+  iconOnly = false,
+  className = ''
 }: DisconnectWalletButtonProps) => {
   const { t } = useTranslation();
-  const [isDisconnecting, setIsDisconnecting] = useState(false);
-  const { disconnectWallet } = useAuthStore();
-  const { wallet } = useWallet();
-  const disconnect = useDisconnect();
+  const { disconnectWallet, walletAddress, isConnected, isConnecting } = useAuthStore();
 
-  const handleDisconnect = async () => {
-    setIsDisconnecting(true);
-    try {
-      // Disconnect from the wallet provider
-      await disconnect();
-      
-      // Update our auth store
-      disconnectWallet();
-    } catch (error) {
-      console.error('Failed to disconnect wallet:', error);
-    } finally {
-      setIsDisconnecting(false);
-    }
+  // Only show button if wallet is connected
+  if (!isConnected() || !walletAddress) {
+    return null;
+  }
+
+  const handleDisconnect = () => {
+    disconnectWallet();
   };
 
   // Style variants
@@ -70,12 +61,18 @@ const DisconnectWalletButton = ({
     }
   };
 
+  // Format the address for display
+  const formattedAddress = walletAddress 
+    ? `${walletAddress.substring(0, 4)}...${walletAddress.substring(walletAddress.length - 4)}`
+    : '';
+
   return (
     <button
       className={`
         ${getVariantStyles()}
         ${getSizeStyles()}
         ${fullWidth ? 'w-full' : ''}
+        ${className}
         inline-flex items-center justify-center
         rounded-lg font-medium
         transition-colors duration-200 ease-in-out
@@ -83,10 +80,11 @@ const DisconnectWalletButton = ({
         disabled:opacity-50 disabled:cursor-not-allowed
       `}
       onClick={handleDisconnect}
-      disabled={isDisconnecting}
+      disabled={isConnecting()}
+      title={!iconOnly ? undefined : t('wallet.disconnectTitle', { address: walletAddress })}
     >
       <LogOut size={size === 'sm' ? 14 : size === 'lg' ? 20 : 16} className={iconOnly ? '' : 'mr-2'} />
-      {!iconOnly && (isDisconnecting ? t('wallet.disconnecting') : t('wallet.disconnect'))}
+      {!iconOnly && (isConnecting() ? t('wallet.disconnecting') : iconOnly ? '' : t('wallet.disconnect'))}
     </button>
   );
 };

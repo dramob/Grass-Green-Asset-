@@ -65,7 +65,7 @@ const Header = () => {
 
           {/* Right buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            {isConnected ? (
+            {isConnected() ? (
               <>
                 <button className="p-2 rounded-full text-emerald-200 hover:bg-emerald-800/50">
                   <Bell size={20} />
@@ -136,7 +136,7 @@ const Header = () => {
             </Link>
           </div>
           <div className="pt-4 pb-3 border-t border-emerald-700/30">
-            {isConnected ? (
+            {isConnected() ? (
               <div className="flex items-center px-4">
                 <div className="flex-shrink-0">
                   <User size={36} className="p-1 rounded-full bg-emerald-800/50 text-emerald-200" />
