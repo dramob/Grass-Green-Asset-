@@ -1,0 +1,19 @@
+# API and Web
+fastapi==0.95.1
+uvicorn==0.22.0
+# Adjusted version to be compatible with googlesearch-python
+requests==2.25.1
+python-dotenv==1.0.0
+
+# Web Scraping and Crawling
+google==3.0.0
+googlesearch-python==1.1.0
+
+# PDF Processing
+PyPDF2==3.0.1
+
+# OpenAI
+openai==1.5.0
+
+# XRPL Integration
+xrpl-py==2.0.0

@@ -1,0 +1,362 @@
+{
+  "common": {
+    "appName": "GreenAsset",
+    "loading": "Chargement...",
+    "error": "Une erreur est survenue",
+    "retry": "Réessayer",
+    "cancel": "Annuler",
+    "save": "Enregistrer",
+    "submit": "Soumettre",
+    "next": "Suivant",
+    "previous": "Précédent",
+    "back": "Retour",
+    "close": "Fermer",
+    "confirm": "Confirmer",
+    "search": "Rechercher",
+    "filter": "Filtrer",
+    "sort": "Trier",
+    "all": "Tous",
+    "noResults": "Aucun résultat trouvé",
+    "viewDetails": "Voir les détails",
+    "learnMore": "En savoir plus",
+    "seeAll": "Voir tout",
+    "or": "ou"
+  },
+  "auth": {
+    "connectWallet": "Connecter un Portefeuille",
+    "connectWalletDescription": "Connectez-vous avec votre portefeuille préféré ou votre compte social pour accéder à GreenAsset.",
+    "walletOptions": "Options de Portefeuille",
+    "emailLogin": "Connexion par Email",
+    "emailLoginDescription": "Connectez-vous en utilisant votre adresse email. Un lien de connexion unique sera envoyé à votre boîte de réception.",
+    "emailAddress": "Adresse Email",
+    "continueWithEmail": "Continuer avec Email",
+    "walletDisclaimer": "En vous connectant, vous acceptez nos Conditions d'Utilisation et notre Politique de Confidentialité. Votre adresse de portefeuille sera utilisée pour vérifier votre identité.",
+    "scanQrCode": "Scanner le Code QR",
+    "scanQrCodeDescription": "Scannez ce code QR avec votre application {{wallet}} pour vous connecter",
+    "qrCodeHelp": "Une fois que vous avez scanné le code, confirmez la demande de connexion dans votre application de portefeuille",
+    "connectionPending": "En attente d'approbation du portefeuille...",
+    "deepLinkNotice": "Si vous avez l'application portefeuille installée, elle devrait s'ouvrir automatiquement",
+    "manualConnect": "Se connecter manuellement",
+    "wallets": {
+      "xumm": "Portefeuille XRPL avec sécurité renforcée",
+      "xaman": "Portefeuille XRPL avec sécurité renforcée (anciennement XUMM)",
+      "gemwallet": "Extension de navigateur pour XRPL",
+      "crossmark": "Portefeuille XRPL sécurisé pour les transactions",
+      "google": "Continuer avec votre compte Google"
+    },
+    "signIn": "Se Connecter",
+    "signUp": "S'inscrire",
+    "createWalletHelp": "Vous n'avez pas de portefeuille XRPL?",
+    "createWalletDescription": "Vous pouvez utiliser l'authentification Google ou Email pour créer un nouveau portefeuille automatiquement.",
+    "walletCreatedTitle": "Nouveau Portefeuille Créé",
+    "walletCreatedMessage": "Un nouveau portefeuille XRPL a été créé pour vous. Votre adresse de portefeuille est :",
+    "walletCreatedHelp": "Dans une application réelle, cela serait stocké en toute sécurité sur nos serveurs.",
+    "walletCreatedWarning": "IMPORTANT: Il s'agit d'un portefeuille de test sur le Testnet XRPL."
+  },
+  "nav": {
+    "home": "Accueil",
+    "buy": "Acheter",
+    "sell": "Vendre",
+    "profile": "Profil",
+    "settings": "Paramètres",
+    "logout": "Déconnexion",
+    "analytics": "Analytique",
+    "sustainability": "Impact",
+    "leaderboard": "Classement",
+    "learn": "Apprendre",
+    "viewProfile": "Voir le profil"
+  },
+  "wallet": {
+    "connect": "Connecter le Portefeuille",
+    "connecting": "Connexion...",
+    "disconnect": "Déconnecter le Portefeuille",
+    "disconnecting": "Déconnexion...",
+    "address": "Adresse du Portefeuille",
+    "balance": "Solde",
+    "network": "Réseau",
+    "copyAddress": "Copier l'Adresse",
+    "copied": "Copié!",
+    "connected": "Connecté",
+    "notConnected": "Non Connecté",
+    "disconnected": "Déconnecté",
+    "providerInfo": "Informations sur le Fournisseur",
+    "manageWallet": "Gérer le Portefeuille"
+  },
+  "home": {
+    "hero": {
+      "title": "Un Avenir Durable avec des Actifs Numériques Verts",
+      "subtitle": "Investissez dans des projets environnementaux vérifiés avec un suivi d'impact transparent sur la blockchain",
+      "cta": {
+        "primary": "Commencer",
+        "secondary": "Explorer les Actifs"
+      }
+    },
+    "stats": {
+      "assets": "Actifs Verts",
+      "value": "Valeur Totale Verrouillée",
+      "carbon": "Compensation Carbone"
+    },
+    "featuresTitle": "Pourquoi les Actifs Verts?",
+    "features": {
+      "sustainable": {
+        "title": "Durable",
+        "description": "Soutenez des projets aux bénéfices environnementaux vérifiés"
+      },
+      "secure": {
+        "title": "Sécurisé",
+        "description": "Construit sur XRP Ledger pour des transactions sécurisées et rapides"
+      },
+      "transparent": {
+        "title": "Transparent",
+        "description": "Visibilité complète des détails du projet et des métriques d'impact"
+      },
+      "global": {
+        "title": "Impact Mondial",
+        "description": "Connectez-vous avec des projets environnementaux du monde entier"
+      }
+    },
+    "latestAssets": "Derniers Actifs Verts",
+    "viewAll": "Voir Tous les Actifs",
+    "updatedRecently": "Mis à jour récemment",
+    "cta": {
+      "title": "Prêt à faire la différence?",
+      "description": "Rejoignez des milliers d'investisseurs qui soutiennent des projets durables et génèrent des rendements tout en ayant un impact environnemental positif.",
+      "button": "Connectez Votre Portefeuille"
+    }
+  },
+  "buy": {
+    "title": "Acheter des Actifs Verts",
+    "subtitle": "Découvrez et investissez dans des projets environnementaux tokenisés",
+    "filters": {
+      "title": "Filtres",
+      "price": "Prix",
+      "score": "Score",
+      "volume": "Volume (24h)",
+      "reset": "Réinitialiser les filtres",
+      "apply": "Appliquer les filtres"
+    },
+    "sort": {
+      "title": "Trier par",
+      "priceAsc": "Prix: Croissant",
+      "priceDesc": "Prix: Décroissant",
+      "scoreDesc": "Score: Décroissant",
+      "volumeDesc": "Volume: Décroissant",
+      "newest": "Plus récent d'abord"
+    },
+    "card": {
+      "price": "Prix",
+      "score": "Score",
+      "volume": "Volume (24h)"
+    }
+  },
+  "token": {
+    "details": "Détails du Token",
+    "price": "Prix",
+    "score": "Score",
+    "volume": "Volume (24h)",
+    "description": "Description",
+    "impact": "Impact Environnemental",
+    "documents": "Documents",
+    "history": "Historique des Prix",
+    "buy": "Acheter le Token",
+    "transaction": {
+      "title": "Finaliser la Transaction",
+      "summary": "Résumé de la Transaction",
+      "tokenName": "Nom du Token",
+      "tokenSymbol": "Symbole du Token",
+      "quantity": "Quantité",
+      "totalPrice": "Prix Total",
+      "fees": "Frais de Réseau",
+      "total": "Total",
+      "sign": "Signer la Transaction",
+      "confirm": "Confirmer",
+      "success": "Transaction Réussie",
+      "txHash": "Hachage de Transaction",
+      "viewOnExplorer": "Voir sur Bithomp"
+    }
+  },
+  "sell": {
+    "title": "Vendre des Actifs Verts",
+    "subtitle": "Listez vos projets environnementaux en tant qu'actifs tokenisés",
+    "login": "Connectez-vous pour lister vos actifs",
+    "newListing": "Créer une Nouvelle Annonce",
+    "myListings": "Mes Annonces",
+    "form": {
+      "title": "Nouvelle Annonce d'Actif",
+      "generalInfo": "Informations Générales",
+      "documents": "Documents du Projet",
+      "impact": "Impact Environnemental",
+      "sdgGoals": "Objectifs de Développement Durable",
+      "review": "Révision et Soumission",
+      "companyName": "Nom de l'Entreprise",
+      "projectName": "Nom du Projet",
+      "projectSymbol": "Symbole du Projet",
+      "supply": "Offre Totale",
+      "price": "Prix Initial (XRP)",
+      "category": "Catégorie du Projet",
+      "location": "Emplacement du Projet",
+      "startDate": "Date de Début du Projet",
+      "endDate": "Date de Fin du Projet",
+      "description": "Description du Projet",
+      "uploadDocuments": "Télécharger des Documents",
+      "dragDrop": "Glissez et déposez des fichiers ici, ou cliquez pour sélectionner des fichiers",
+      "fileTypes": "Types de fichiers supportés: PDF, DOCX, XLSX",
+      "maxSize": "Taille maximale de fichier: 10MB",
+      "impactSummary": "Résumé de l'Impact",
+      "impactDescription": "Décrivez l'impact environnemental de votre projet",
+      "sdgSelection": "Sélectionnez tous les ODD qui s'appliquent à votre projet",
+      "sdgJustification": "Expliquez comment votre projet contribue à cet objectif",
+      "submit": "Soumettre pour Notation",
+      "submitting": "Soumission en cours..."
+    },
+    "scoring": {
+      "title": "Notation du Projet",
+      "inProgress": "Notation en Cours",
+      "completed": "Notation Terminée",
+      "steps": {
+        "upload": "Documents Téléchargés",
+        "processing": "Traitement des Documents",
+        "scoring": "Notation par IA",
+        "verification": "Vérification Web",
+        "review": "Révision Finale",
+        "complete": "Score Prêt"
+      },
+      "result": {
+        "title": "Résultat de la Notation",
+        "score": "Score de Votre Projet",
+        "details": "Détails du Score",
+        "sustainability": "Durabilité",
+        "impact": "Impact Environnemental",
+        "transparency": "Transparence",
+        "viability": "Viabilité Économique",
+        "sdgVerification": "Vérification des Objectifs ODD",
+        "mint": "Créer un Token GreenAsset",
+        "minting": "Création en Cours...",
+        "success": "Token Créé avec Succès",
+        "viewToken": "Voir le Token",
+        "webVerificationSummary": "Résumé de la Vérification Web",
+        "verifiedBy": "Vérifié par IA avec Brave Search"
+      }
+    },
+    "sdg": {
+      "title": "Objectifs de Développement Durable",
+      "description": "Sélectionnez tous les ODD auxquels votre projet contribue et expliquez comment",
+      "goals": {
+        "1": {
+          "name": "Pas de Pauvreté",
+          "description": "Éliminer la pauvreté sous toutes ses formes et partout dans le monde"
+        },
+        "2": {
+          "name": "Faim «Zéro»",
+          "description": "Éliminer la faim, assurer la sécurité alimentaire, améliorer la nutrition et promouvoir l'agriculture durable"
+        },
+        "3": {
+          "name": "Bonne Santé et Bien-être",
+          "description": "Permettre à tous de vivre en bonne santé et promouvoir le bien-être à tout âge"
+        },
+        "4": {
+          "name": "Éducation de Qualité",
+          "description": "Assurer l'accès de tous à une éducation de qualité et promouvoir les possibilités d'apprentissage tout au long de la vie"
+        },
+        "5": {
+          "name": "Égalité Entre les Sexes",
+          "description": "Parvenir à l'égalité des sexes et autonomiser toutes les femmes et les filles"
+        },
+        "6": {
+          "name": "Eau Propre et Assainissement",
+          "description": "Garantir l'accès de tous à des services d'alimentation en eau et d'assainissement gérés de façon durable"
+        },
+        "7": {
+          "name": "Énergie Propre et d'un Coût Abordable",
+          "description": "Garantir l'accès de tous à des services énergétiques fiables, durables et modernes, à un coût abordable"
+        },
+        "8": {
+          "name": "Travail Décent et Croissance Économique",
+          "description": "Promouvoir une croissance économique soutenue, partagée et durable, le plein emploi productif et un travail décent pour tous"
+        },
+        "9": {
+          "name": "Industrie, Innovation et Infrastructure",
+          "description": "Bâtir une infrastructure résiliente, promouvoir une industrialisation durable et encourager l'innovation"
+        },
+        "10": {
+          "name": "Inégalités Réduites",
+          "description": "Réduire les inégalités dans les pays et d'un pays à l'autre"
+        },
+        "11": {
+          "name": "Villes et Communautés Durables",
+          "description": "Faire en sorte que les villes et les établissements humains soient ouverts à tous, sûrs, résilients et durables"
+        },
+        "12": {
+          "name": "Consommation et Production Responsables",
+          "description": "Établir des modes de consommation et de production durables"
+        },
+        "13": {
+          "name": "Mesures Relatives à la Lutte Contre les Changements Climatiques",
+          "description": "Prendre d'urgence des mesures pour lutter contre les changements climatiques et leurs répercussions"
+        },
+        "14": {
+          "name": "Vie Aquatique",
+          "description": "Conserver et exploiter de manière durable les océans, les mers et les ressources marines"
+        },
+        "15": {
+          "name": "Vie Terrestre",
+          "description": "Préserver et restaurer les écosystèmes terrestres, gérer durablement les forêts, lutter contre la désertification, enrayer et inverser le processus de dégradation des terres et mettre fin à l'appauvrissement de la biodiversité"
+        },
+        "16": {
+          "name": "Paix, Justice et Institutions Efficaces",
+          "description": "Promouvoir l'avènement de sociétés pacifiques et inclusives, assurer l'accès de tous à la justice et mettre en place des institutions efficaces, responsables et ouvertes à tous"
+        },
+        "17": {
+          "name": "Partenariats pour la Réalisation des Objectifs",
+          "description": "Renforcer les moyens de mise en œuvre et revitaliser le partenariat mondial pour le développement durable"
+        }
+      }
+    }
+  },
+  "profile": {
+    "title": "Profil d'Entreprise",
+    "assets": "Actifs Listés",
+    "pending": "Actifs en Attente",
+    "completed": "Actifs Listés",
+    "noAssets": "Aucun actif trouvé",
+    "assetStatus": {
+      "draft": "Brouillon",
+      "scoring": "En Notation",
+      "rejected": "Rejeté",
+      "approved": "Approuvé",
+      "listed": "Listé"
+    }
+  },
+  "footer": {
+    "tagline": "Transformer des projets environnementaux en actifs numériques transparents",
+    "resources": "Ressources",
+    "documentation": "Documentation",
+    "analytics": "Analytique",
+    "sustainability": "Durabilité",
+    "company": "Entreprise",
+    "about": "À Propos",
+    "contact": "Contact",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "connect": "Se Connecter",
+    "rights": "Tous droits réservés",
+    "blockchain": "Blockchain",
+    "poweredBy": "Propulsé par"
+  },
+  "notFound": {
+    "title": "Page Non Trouvée",
+    "message": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "back": "Retour",
+    "home": "Accueil"
+  },
+  "errors": {
+    "general": "Quelque chose s'est mal passé",
+    "network": "Erreur réseau. Veuillez vérifier votre connexion",
+    "auth": "Erreur d'authentification",
+    "notFound": "Page non trouvée",
+    "walletConnection": "Échec de connexion du portefeuille",
+    "transaction": "La transaction a échoué",
+    "upload": "Le téléchargement du fichier a échoué",
+    "form": "Veuillez vérifier le formulaire pour les erreurs"
+  }
+}

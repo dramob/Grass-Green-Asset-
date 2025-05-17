@@ -1,0 +1,362 @@
+{
+  "common": {
+    "appName": "GreenAsset",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "submit": "Submit",
+    "next": "Next",
+    "previous": "Previous",
+    "back": "Back",
+    "close": "Close",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "all": "All",
+    "noResults": "No results found",
+    "viewDetails": "View details",
+    "learnMore": "Learn more",
+    "seeAll": "See all",
+    "or": "or"
+  },
+  "auth": {
+    "connectWallet": "Connect Wallet",
+    "connectWalletDescription": "Connect with your preferred wallet or social account to access GreenAsset.",
+    "walletOptions": "Wallet Options",
+    "emailLogin": "Email Login",
+    "emailLoginDescription": "Sign in using your email address. A one-time login link will be sent to your inbox.",
+    "emailAddress": "Email Address",
+    "continueWithEmail": "Continue with Email",
+    "walletDisclaimer": "By connecting, you agree to our Terms of Service and Privacy Policy. Your wallet address will be used to verify your identity.",
+    "scanQrCode": "Scan QR Code",
+    "scanQrCodeDescription": "Scan this QR code with your {{wallet}} mobile app to connect",
+    "qrCodeHelp": "Once you've scanned the code, confirm the connection request in your wallet app",
+    "connectionPending": "Waiting for wallet approval...",
+    "deepLinkNotice": "If you have the wallet app installed, it should open automatically",
+    "manualConnect": "Connect manually",
+    "wallets": {
+      "xumm": "XRPL wallet with enhanced security",
+      "xaman": "XRPL wallet with enhanced security (formerly XUMM)",
+      "gemwallet": "Browser extension for XRPL",
+      "crossmark": "Secure XRPL wallet for transactions",
+      "google": "Continue with your Google account"
+    },
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "createWalletHelp": "Don't have an XRPL wallet?",
+    "createWalletDescription": "You can use Google authentication or Email to create a new wallet automatically.",
+    "walletCreatedTitle": "New Wallet Created",
+    "walletCreatedMessage": "A new XRPL wallet has been created for you. Your wallet address is:",
+    "walletCreatedHelp": "In a real application, this would be securely stored on our servers.",
+    "walletCreatedWarning": "IMPORTANT: This is a test wallet on the XRPL Testnet."
+  },
+  "nav": {
+    "home": "Home",
+    "buy": "Buy",
+    "sell": "Sell",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout",
+    "analytics": "Analytics",
+    "sustainability": "Impact",
+    "leaderboard": "Leaderboard",
+    "learn": "Learn",
+    "viewProfile": "View Profile"
+  },
+  "wallet": {
+    "connect": "Connect Wallet",
+    "connecting": "Connecting...",
+    "disconnect": "Disconnect Wallet",
+    "disconnecting": "Disconnecting...",
+    "address": "Wallet Address",
+    "balance": "Balance",
+    "network": "Network",
+    "copyAddress": "Copy Address",
+    "copied": "Copied!",
+    "connected": "Connected",
+    "notConnected": "Not Connected",
+    "disconnected": "Disconnected",
+    "providerInfo": "Provider Information",
+    "manageWallet": "Manage Wallet"
+  },
+  "home": {
+    "hero": {
+      "title": "Sustainable Future with Green Digital Assets",
+      "subtitle": "Invest in verified environmental projects with transparent impact tracking on the blockchain",
+      "cta": {
+        "primary": "Get Started",
+        "secondary": "Explore Assets"
+      }
+    },
+    "stats": {
+      "assets": "Green Assets",
+      "value": "Total Value Locked",
+      "carbon": "Carbon Offset"
+    },
+    "featuresTitle": "Why Green Assets?",
+    "features": {
+      "sustainable": {
+        "title": "Sustainable",
+        "description": "Support projects with verified environmental benefits"
+      },
+      "secure": {
+        "title": "Secure",
+        "description": "Built on XRP Ledger for secure and fast transactions"
+      },
+      "transparent": {
+        "title": "Transparent",
+        "description": "Full visibility into project details and impact metrics"
+      },
+      "global": {
+        "title": "Global Impact",
+        "description": "Connect with environmental projects worldwide"
+      }
+    },
+    "latestAssets": "Latest Green Assets",
+    "viewAll": "View All Assets",
+    "updatedRecently": "Updated recently",
+    "cta": {
+      "title": "Ready to make a difference?",
+      "description": "Join thousands of investors supporting sustainable projects and earning returns while making a positive environmental impact.",
+      "button": "Connect Your Wallet"
+    }
+  },
+  "buy": {
+    "title": "Buy Green Assets",
+    "subtitle": "Discover and invest in tokenized environmental projects",
+    "filters": {
+      "title": "Filters",
+      "price": "Price",
+      "score": "Score",
+      "volume": "Volume (24h)",
+      "reset": "Reset filters",
+      "apply": "Apply filters"
+    },
+    "sort": {
+      "title": "Sort by",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "scoreDesc": "Score: High to Low",
+      "volumeDesc": "Volume: High to Low",
+      "newest": "Newest first"
+    },
+    "card": {
+      "price": "Price",
+      "score": "Score",
+      "volume": "Volume (24h)"
+    }
+  },
+  "token": {
+    "details": "Token Details",
+    "price": "Price",
+    "score": "Score",
+    "volume": "Volume (24h)",
+    "description": "Description",
+    "impact": "Environmental Impact",
+    "documents": "Documents",
+    "history": "Price History",
+    "buy": "Buy Token",
+    "transaction": {
+      "title": "Complete Transaction",
+      "summary": "Transaction Summary",
+      "tokenName": "Token Name",
+      "tokenSymbol": "Token Symbol",
+      "quantity": "Quantity",
+      "totalPrice": "Total Price",
+      "fees": "Network Fees",
+      "total": "Total",
+      "sign": "Sign Transaction",
+      "confirm": "Confirm",
+      "success": "Transaction Successful",
+      "txHash": "Transaction Hash",
+      "viewOnExplorer": "View on Bithomp"
+    }
+  },
+  "sell": {
+    "title": "Sell Green Assets",
+    "subtitle": "List your environmental projects as tokenized assets",
+    "login": "Login to list your assets",
+    "newListing": "Create New Listing",
+    "myListings": "My Listings",
+    "form": {
+      "title": "New Asset Listing",
+      "generalInfo": "General Information",
+      "documents": "Project Documents",
+      "impact": "Environmental Impact",
+      "sdgGoals": "Sustainable Development Goals",
+      "review": "Review & Submit",
+      "companyName": "Company Name",
+      "projectName": "Project Name",
+      "projectSymbol": "Project Symbol",
+      "supply": "Total Supply",
+      "price": "Initial Price (XRP)",
+      "category": "Project Category",
+      "location": "Project Location",
+      "startDate": "Project Start Date",
+      "endDate": "Project End Date",
+      "description": "Project Description",
+      "uploadDocuments": "Upload Documents",
+      "dragDrop": "Drag and drop files here, or click to select files",
+      "fileTypes": "Supported file types: PDF, DOCX, XLSX",
+      "maxSize": "Maximum file size: 10MB",
+      "impactSummary": "Impact Summary",
+      "impactDescription": "Describe the environmental impact of your project",
+      "sdgSelection": "Select all SDGs that apply to your project",
+      "sdgJustification": "Explain how your project contributes to this goal",
+      "submit": "Submit for Scoring",
+      "submitting": "Submitting..."
+    },
+    "scoring": {
+      "title": "Project Scoring",
+      "inProgress": "Scoring in Progress",
+      "completed": "Scoring Completed",
+      "steps": {
+        "upload": "Documents Uploaded",
+        "processing": "Processing Documents",
+        "scoring": "AI Scoring",
+        "verification": "Web Verification",
+        "review": "Final Review",
+        "complete": "Score Ready"
+      },
+      "result": {
+        "title": "Scoring Result",
+        "score": "Your Project Score",
+        "details": "Score Details",
+        "sustainability": "Sustainability",
+        "impact": "Environmental Impact",
+        "transparency": "Transparency",
+        "viability": "Economic Viability",
+        "sdgVerification": "SDG Claims Verification",
+        "mint": "Mint GreenAsset Token",
+        "minting": "Minting in Progress...",
+        "success": "Token Successfully Minted",
+        "viewToken": "View Token",
+        "webVerificationSummary": "Web Verification Summary",
+        "verifiedBy": "Verified by AI with Brave Search"
+      }
+    },
+    "sdg": {
+      "title": "Sustainable Development Goals",
+      "description": "Select all the SDGs that your project contributes to and explain how",
+      "goals": {
+        "1": {
+          "name": "No Poverty",
+          "description": "End poverty in all its forms everywhere"
+        },
+        "2": {
+          "name": "Zero Hunger",
+          "description": "End hunger, achieve food security and improved nutrition and promote sustainable agriculture"
+        },
+        "3": {
+          "name": "Good Health and Well-being",
+          "description": "Ensure healthy lives and promote well-being for all at all ages"
+        },
+        "4": {
+          "name": "Quality Education",
+          "description": "Ensure inclusive and equitable quality education and promote lifelong learning opportunities for all"
+        },
+        "5": {
+          "name": "Gender Equality",
+          "description": "Achieve gender equality and empower all women and girls"
+        },
+        "6": {
+          "name": "Clean Water and Sanitation",
+          "description": "Ensure availability and sustainable management of water and sanitation for all"
+        },
+        "7": {
+          "name": "Affordable and Clean Energy",
+          "description": "Ensure access to affordable, reliable, sustainable and modern energy for all"
+        },
+        "8": {
+          "name": "Decent Work and Economic Growth",
+          "description": "Promote sustained, inclusive and sustainable economic growth, full and productive employment and decent work for all"
+        },
+        "9": {
+          "name": "Industry, Innovation and Infrastructure",
+          "description": "Build resilient infrastructure, promote inclusive and sustainable industrialization and foster innovation"
+        },
+        "10": {
+          "name": "Reduced Inequality",
+          "description": "Reduce inequality within and among countries"
+        },
+        "11": {
+          "name": "Sustainable Cities and Communities",
+          "description": "Make cities and human settlements inclusive, safe, resilient and sustainable"
+        },
+        "12": {
+          "name": "Responsible Consumption and Production",
+          "description": "Ensure sustainable consumption and production patterns"
+        },
+        "13": {
+          "name": "Climate Action",
+          "description": "Take urgent action to combat climate change and its impacts"
+        },
+        "14": {
+          "name": "Life Below Water",
+          "description": "Conserve and sustainably use the oceans, seas and marine resources for sustainable development"
+        },
+        "15": {
+          "name": "Life on Land",
+          "description": "Protect, restore and promote sustainable use of terrestrial ecosystems, sustainably manage forests, combat desertification, and halt and reverse land degradation and halt biodiversity loss"
+        },
+        "16": {
+          "name": "Peace, Justice and Strong Institutions",
+          "description": "Promote peaceful and inclusive societies for sustainable development, provide access to justice for all and build effective, accountable and inclusive institutions at all levels"
+        },
+        "17": {
+          "name": "Partnerships for the Goals",
+          "description": "Strengthen the means of implementation and revitalize the global partnership for sustainable development"
+        }
+      }
+    }
+  },
+  "profile": {
+    "title": "Company Profile",
+    "assets": "Listed Assets",
+    "pending": "Pending Assets",
+    "completed": "Listed Assets",
+    "noAssets": "No assets found",
+    "assetStatus": {
+      "draft": "Draft",
+      "scoring": "In Scoring",
+      "rejected": "Rejected",
+      "approved": "Approved",
+      "listed": "Listed"
+    }
+  },
+  "footer": {
+    "tagline": "Transforming environmental projects into transparent digital assets",
+    "resources": "Resources",
+    "documentation": "Documentation",
+    "analytics": "Analytics",
+    "sustainability": "Sustainability",
+    "company": "Company",
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "connect": "Connect",
+    "rights": "All rights reserved",
+    "blockchain": "Blockchain",
+    "poweredBy": "Powered by"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "back": "Go Back",
+    "home": "Go Home"
+  },
+  "errors": {
+    "general": "Something went wrong",
+    "network": "Network error. Please check your connection",
+    "auth": "Authentication error",
+    "notFound": "Page not found",
+    "walletConnection": "Failed to connect wallet",
+    "transaction": "Transaction failed",
+    "upload": "File upload failed",
+    "form": "Please check the form for errors"
+  }
+}

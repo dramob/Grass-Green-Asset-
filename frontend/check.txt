@@ -1,0 +1,1 @@
+This is a check file to verify the frontend directory exists and is writable.
