@@ -1,0 +1,172 @@
+{
+  "common": {
+    "appName": "GRASS",
+    "loading": "Loading...",
+    "error": "An error occurred",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "submit": "Submit",
+    "next": "Next",
+    "previous": "Previous",
+    "back": "Back",
+    "close": "Close",
+    "confirm": "Confirm",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "all": "All",
+    "noResults": "No results found",
+    "viewDetails": "View details",
+    "learnMore": "Learn more",
+    "seeAll": "See all"
+  },
+  "navigation": {
+    "home": "Home",
+    "buy": "Buy",
+    "sell": "Sell",
+    "profile": "Profile",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": "Login",
+    "loginWithProvider": "Login with {{provider}}",
+    "logout": "Logout",
+    "connectWallet": "Connect Wallet",
+    "disconnectWallet": "Disconnect Wallet",
+    "walletConnected": "Wallet Connected",
+    "walletAddress": "Wallet Address"
+  },
+  "buy": {
+    "title": "Buy Green Assets",
+    "subtitle": "Discover and invest in tokenized environmental projects",
+    "filters": {
+      "title": "Filters",
+      "price": "Price",
+      "score": "Score",
+      "volume": "Volume (24h)",
+      "reset": "Reset filters",
+      "apply": "Apply filters"
+    },
+    "sort": {
+      "title": "Sort by",
+      "priceAsc": "Price: Low to High",
+      "priceDesc": "Price: High to Low",
+      "scoreDesc": "Score: High to Low",
+      "volumeDesc": "Volume: High to Low",
+      "newest": "Newest first"
+    },
+    "card": {
+      "price": "Price",
+      "score": "Score",
+      "volume": "Volume (24h)"
+    }
+  },
+  "token": {
+    "details": "Token Details",
+    "price": "Price",
+    "score": "Score",
+    "volume": "Volume (24h)",
+    "description": "Description",
+    "impact": "Environmental Impact",
+    "documents": "Documents",
+    "history": "Price History",
+    "buy": "Buy Token",
+    "transaction": {
+      "title": "Complete Transaction",
+      "summary": "Transaction Summary",
+      "tokenName": "Token Name",
+      "tokenSymbol": "Token Symbol",
+      "quantity": "Quantity",
+      "totalPrice": "Total Price",
+      "fees": "Network Fees",
+      "total": "Total",
+      "sign": "Sign Transaction",
+      "confirm": "Confirm",
+      "success": "Transaction Successful",
+      "txHash": "Transaction Hash",
+      "viewOnExplorer": "View on Bithomp"
+    }
+  },
+  "sell": {
+    "title": "Sell Green Assets",
+    "subtitle": "List your environmental projects as tokenized assets",
+    "login": "Login to list your assets",
+    "newListing": "Create New Listing",
+    "myListings": "My Listings",
+    "form": {
+      "title": "New Asset Listing",
+      "generalInfo": "General Information",
+      "documents": "Project Documents",
+      "impact": "Environmental Impact",
+      "review": "Review & Submit",
+      "projectName": "Project Name",
+      "projectSymbol": "Project Symbol",
+      "supply": "Total Supply",
+      "price": "Initial Price (XRP)",
+      "category": "Project Category",
+      "location": "Project Location",
+      "startDate": "Project Start Date",
+      "endDate": "Project End Date",
+      "description": "Project Description",
+      "uploadDocuments": "Upload Documents",
+      "dragDrop": "Drag and drop files here, or click to select files",
+      "fileTypes": "Supported file types: PDF, DOCX, XLSX",
+      "maxSize": "Maximum file size: 10MB",
+      "impactSummary": "Impact Summary",
+      "impactDescription": "Describe the environmental impact of your project",
+      "submit": "Submit for Scoring",
+      "submitting": "Submitting..."
+    },
+    "scoring": {
+      "title": "Project Scoring",
+      "inProgress": "Scoring in Progress",
+      "completed": "Scoring Completed",
+      "steps": {
+        "upload": "Documents Uploaded",
+        "processing": "Processing Documents",
+        "scoring": "AI Scoring",
+        "review": "Final Review",
+        "complete": "Score Ready"
+      },
+      "result": {
+        "title": "Scoring Result",
+        "score": "Your Project Score",
+        "details": "Score Details",
+        "sustainability": "Sustainability",
+        "impact": "Environmental Impact",
+        "transparency": "Transparency",
+        "viability": "Economic Viability",
+        "mint": "Mint GRASS Token",
+        "minting": "Minting in Progress...",
+        "success": "Token Successfully Minted",
+        "viewToken": "View Token"
+      }
+    }
+  },
+  "profile": {
+    "title": "Company Profile",
+    "assets": "Listed Assets",
+    "pending": "Pending Assets",
+    "completed": "Listed Assets",
+    "noAssets": "No assets found",
+    "assetStatus": {
+      "draft": "Draft",
+      "scoring": "In Scoring",
+      "rejected": "Rejected",
+      "approved": "Approved",
+      "listed": "Listed"
+    }
+  },
+  "errors": {
+    "general": "Something went wrong",
+    "network": "Network error. Please check your connection",
+    "auth": "Authentication error",
+    "notFound": "Page not found",
+    "walletConnection": "Failed to connect wallet",
+    "transaction": "Transaction failed",
+    "upload": "File upload failed",
+    "form": "Please check the form for errors"
+  }
+}
