@@ -11,6 +11,11 @@
   },
   "dependencies": {
     "@tanstack/react-query": "^5.28.4",
+    "@xrpl-wallet-adapter/base": "^0.1.4",
+    "@xrpl-wallet-adapter/crossmark": "^0.1.4",
+    "@xrpl-wallet-adapter/local-testonly": "^0.1.7",
+    "@xrpl-wallet-adapter/xaman": "^0.1.4",
+    "@xrpl-wallet-standard/react": "^0.2.4",
     "chart.js": "^4.4.2",
     "dompurify": "^3.0.11",
     "i18next": "^23.10.1",
@@ -21,6 +26,7 @@
     "react-dropzone": "^14.2.3",
     "react-i18next": "^14.1.0",
     "react-router-dom": "^6.22.3",
+    "xrpl": "^4.2.5",
     "xumm-sdk": "^1.11.0",
     "zustand": "^4.5.2"
   },

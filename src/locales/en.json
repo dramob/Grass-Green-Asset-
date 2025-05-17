@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "GRASS",
+    "appName": "GreenAsset",
     "loading": "Loading...",
     "error": "An error occurred",
     "retry": "Retry",
@@ -19,24 +19,103 @@
     "noResults": "No results found",
     "viewDetails": "View details",
     "learnMore": "Learn more",
-    "seeAll": "See all"
+    "seeAll": "See all",
+    "or": "or"
   },
-  "navigation": {
+  "auth": {
+    "connectWallet": "Connect Wallet",
+    "connectWalletDescription": "Connect with your preferred wallet or social account to access GreenAsset.",
+    "walletOptions": "Wallet Options",
+    "emailLogin": "Email Login",
+    "emailLoginDescription": "Sign in using your email address. A one-time login link will be sent to your inbox.",
+    "emailAddress": "Email Address",
+    "continueWithEmail": "Continue with Email",
+    "walletDisclaimer": "By connecting, you agree to our Terms of Service and Privacy Policy. Your wallet address will be used to verify your identity.",
+    "wallets": {
+      "xumm": "XRPL's most popular wallet app",
+      "gemwallet": "Browser extension for XRPL",
+      "crossmark": "Secure XRPL wallet for transactions",
+      "google": "Continue with your Google account"
+    },
+    "signIn": "Sign In",
+    "signUp": "Sign Up",
+    "createWalletHelp": "Don't have an XRPL wallet?",
+    "createWalletDescription": "You can use Google authentication or Email to create a new wallet automatically.",
+    "walletCreatedTitle": "New Wallet Created",
+    "walletCreatedMessage": "A new XRPL wallet has been created for you. Your wallet address is:",
+    "walletCreatedHelp": "In a real application, this would be securely stored on our servers.",
+    "walletCreatedWarning": "IMPORTANT: This is a test wallet on the XRPL Testnet."
+  },
+  "nav": {
     "home": "Home",
     "buy": "Buy",
     "sell": "Sell",
     "profile": "Profile",
     "settings": "Settings",
-    "logout": "Logout"
-  },
-  "auth": {
-    "login": "Login",
-    "loginWithProvider": "Login with {{provider}}",
     "logout": "Logout",
-    "connectWallet": "Connect Wallet",
-    "disconnectWallet": "Disconnect Wallet",
-    "walletConnected": "Wallet Connected",
-    "walletAddress": "Wallet Address"
+    "analytics": "Analytics",
+    "sustainability": "Impact",
+    "leaderboard": "Leaderboard",
+    "learn": "Learn",
+    "viewProfile": "View Profile"
+  },
+  "wallet": {
+    "connect": "Connect Wallet",
+    "connecting": "Connecting...",
+    "disconnect": "Disconnect Wallet",
+    "disconnecting": "Disconnecting...",
+    "address": "Wallet Address",
+    "balance": "Balance",
+    "network": "Network",
+    "copyAddress": "Copy Address",
+    "copied": "Copied!",
+    "connected": "Connected",
+    "notConnected": "Not Connected",
+    "disconnected": "Disconnected",
+    "providerInfo": "Provider Information",
+    "manageWallet": "Manage Wallet"
+  },
+  "home": {
+    "hero": {
+      "title": "Sustainable Future with Green Digital Assets",
+      "subtitle": "Invest in verified environmental projects with transparent impact tracking on the blockchain",
+      "cta": {
+        "primary": "Get Started",
+        "secondary": "Explore Assets"
+      }
+    },
+    "stats": {
+      "assets": "Green Assets",
+      "value": "Total Value Locked",
+      "carbon": "Carbon Offset"
+    },
+    "featuresTitle": "Why Green Assets?",
+    "features": {
+      "sustainable": {
+        "title": "Sustainable",
+        "description": "Support projects with verified environmental benefits"
+      },
+      "secure": {
+        "title": "Secure",
+        "description": "Built on XRP Ledger for secure and fast transactions"
+      },
+      "transparent": {
+        "title": "Transparent",
+        "description": "Full visibility into project details and impact metrics"
+      },
+      "global": {
+        "title": "Global Impact",
+        "description": "Connect with environmental projects worldwide"
+      }
+    },
+    "latestAssets": "Latest Green Assets",
+    "viewAll": "View All Assets",
+    "updatedRecently": "Updated recently",
+    "cta": {
+      "title": "Ready to make a difference?",
+      "description": "Join thousands of investors supporting sustainable projects and earning returns while making a positive environmental impact.",
+      "button": "Connect Your Wallet"
+    }
   },
   "buy": {
     "title": "Buy Green Assets",
@@ -138,7 +217,7 @@
         "impact": "Environmental Impact",
         "transparency": "Transparency",
         "viability": "Economic Viability",
-        "mint": "Mint GRASS Token",
+        "mint": "Mint GreenAsset Token",
         "minting": "Minting in Progress...",
         "success": "Token Successfully Minted",
         "viewToken": "View Token"
@@ -158,6 +237,28 @@
       "approved": "Approved",
       "listed": "Listed"
     }
+  },
+  "footer": {
+    "tagline": "Transforming environmental projects into transparent digital assets",
+    "resources": "Resources",
+    "documentation": "Documentation",
+    "analytics": "Analytics",
+    "sustainability": "Sustainability",
+    "company": "Company",
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "connect": "Connect",
+    "rights": "All rights reserved",
+    "blockchain": "Blockchain",
+    "poweredBy": "Powered by"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "message": "The page you're looking for doesn't exist or has been moved.",
+    "back": "Go Back",
+    "home": "Go Home"
   },
   "errors": {
     "general": "Something went wrong",

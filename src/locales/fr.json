@@ -1,6 +1,6 @@
 {
   "common": {
-    "appName": "GRASS",
+    "appName": "GreenAsset",
     "loading": "Chargement...",
     "error": "Une erreur est survenue",
     "retry": "Réessayer",
@@ -19,24 +19,103 @@
     "noResults": "Aucun résultat trouvé",
     "viewDetails": "Voir les détails",
     "learnMore": "En savoir plus",
-    "seeAll": "Voir tout"
+    "seeAll": "Voir tout",
+    "or": "ou"
   },
-  "navigation": {
+  "auth": {
+    "connectWallet": "Connecter un Portefeuille",
+    "connectWalletDescription": "Connectez-vous avec votre portefeuille préféré ou votre compte social pour accéder à GreenAsset.",
+    "walletOptions": "Options de Portefeuille",
+    "emailLogin": "Connexion par Email",
+    "emailLoginDescription": "Connectez-vous en utilisant votre adresse email. Un lien de connexion unique sera envoyé à votre boîte de réception.",
+    "emailAddress": "Adresse Email",
+    "continueWithEmail": "Continuer avec Email",
+    "walletDisclaimer": "En vous connectant, vous acceptez nos Conditions d'Utilisation et notre Politique de Confidentialité. Votre adresse de portefeuille sera utilisée pour vérifier votre identité.",
+    "wallets": {
+      "xumm": "L'application portefeuille la plus populaire pour XRPL",
+      "gemwallet": "Extension de navigateur pour XRPL",
+      "crossmark": "Portefeuille XRPL sécurisé pour les transactions",
+      "google": "Continuer avec votre compte Google"
+    },
+    "signIn": "Se Connecter",
+    "signUp": "S'inscrire",
+    "createWalletHelp": "Vous n'avez pas de portefeuille XRPL?",
+    "createWalletDescription": "Vous pouvez utiliser l'authentification Google ou Email pour créer un nouveau portefeuille automatiquement.",
+    "walletCreatedTitle": "Nouveau Portefeuille Créé",
+    "walletCreatedMessage": "Un nouveau portefeuille XRPL a été créé pour vous. Votre adresse de portefeuille est :",
+    "walletCreatedHelp": "Dans une application réelle, cela serait stocké en toute sécurité sur nos serveurs.",
+    "walletCreatedWarning": "IMPORTANT: Il s'agit d'un portefeuille de test sur le Testnet XRPL."
+  },
+  "nav": {
     "home": "Accueil",
     "buy": "Acheter",
     "sell": "Vendre",
     "profile": "Profil",
     "settings": "Paramètres",
-    "logout": "Déconnexion"
-  },
-  "auth": {
-    "login": "Connexion",
-    "loginWithProvider": "Se connecter avec {{provider}}",
     "logout": "Déconnexion",
-    "connectWallet": "Connecter Wallet",
-    "disconnectWallet": "Déconnecter Wallet",
-    "walletConnected": "Wallet Connecté",
-    "walletAddress": "Adresse du Wallet"
+    "analytics": "Analytique",
+    "sustainability": "Impact",
+    "leaderboard": "Classement",
+    "learn": "Apprendre",
+    "viewProfile": "Voir le profil"
+  },
+  "wallet": {
+    "connect": "Connecter le Portefeuille",
+    "connecting": "Connexion...",
+    "disconnect": "Déconnecter le Portefeuille",
+    "disconnecting": "Déconnexion...",
+    "address": "Adresse du Portefeuille",
+    "balance": "Solde",
+    "network": "Réseau",
+    "copyAddress": "Copier l'Adresse",
+    "copied": "Copié!",
+    "connected": "Connecté",
+    "notConnected": "Non Connecté",
+    "disconnected": "Déconnecté",
+    "providerInfo": "Informations sur le Fournisseur",
+    "manageWallet": "Gérer le Portefeuille"
+  },
+  "home": {
+    "hero": {
+      "title": "Un Avenir Durable avec des Actifs Numériques Verts",
+      "subtitle": "Investissez dans des projets environnementaux vérifiés avec un suivi d'impact transparent sur la blockchain",
+      "cta": {
+        "primary": "Commencer",
+        "secondary": "Explorer les Actifs"
+      }
+    },
+    "stats": {
+      "assets": "Actifs Verts",
+      "value": "Valeur Totale Verrouillée",
+      "carbon": "Compensation Carbone"
+    },
+    "featuresTitle": "Pourquoi les Actifs Verts?",
+    "features": {
+      "sustainable": {
+        "title": "Durable",
+        "description": "Soutenez des projets aux bénéfices environnementaux vérifiés"
+      },
+      "secure": {
+        "title": "Sécurisé",
+        "description": "Construit sur XRP Ledger pour des transactions sécurisées et rapides"
+      },
+      "transparent": {
+        "title": "Transparent",
+        "description": "Visibilité complète des détails du projet et des métriques d'impact"
+      },
+      "global": {
+        "title": "Impact Mondial",
+        "description": "Connectez-vous avec des projets environnementaux du monde entier"
+      }
+    },
+    "latestAssets": "Derniers Actifs Verts",
+    "viewAll": "Voir Tous les Actifs",
+    "updatedRecently": "Mis à jour récemment",
+    "cta": {
+      "title": "Prêt à faire la différence?",
+      "description": "Rejoignez des milliers d'investisseurs qui soutiennent des projets durables et génèrent des rendements tout en ayant un impact environnemental positif.",
+      "button": "Connectez Votre Portefeuille"
+    }
   },
   "buy": {
     "title": "Acheter des Actifs Verts",
@@ -55,7 +134,7 @@
       "priceDesc": "Prix: Décroissant",
       "scoreDesc": "Score: Décroissant",
       "volumeDesc": "Volume: Décroissant",
-      "newest": "Plus récent"
+      "newest": "Plus récent d'abord"
     },
     "card": {
       "price": "Prix",
@@ -85,7 +164,7 @@
       "sign": "Signer la Transaction",
       "confirm": "Confirmer",
       "success": "Transaction Réussie",
-      "txHash": "Hash de Transaction",
+      "txHash": "Hachage de Transaction",
       "viewOnExplorer": "Voir sur Bithomp"
     }
   },
@@ -93,10 +172,10 @@
     "title": "Vendre des Actifs Verts",
     "subtitle": "Listez vos projets environnementaux en tant qu'actifs tokenisés",
     "login": "Connectez-vous pour lister vos actifs",
-    "newListing": "Créer une Nouvelle Liste",
-    "myListings": "Mes Listings",
+    "newListing": "Créer une Nouvelle Annonce",
+    "myListings": "Mes Annonces",
     "form": {
-      "title": "Nouveau Listing d'Actif",
+      "title": "Nouvelle Annonce d'Actif",
       "generalInfo": "Informations Générales",
       "documents": "Documents du Projet",
       "impact": "Impact Environnemental",
@@ -106,12 +185,12 @@
       "supply": "Offre Totale",
       "price": "Prix Initial (XRP)",
       "category": "Catégorie du Projet",
-      "location": "Localisation du Projet",
+      "location": "Emplacement du Projet",
       "startDate": "Date de Début du Projet",
       "endDate": "Date de Fin du Projet",
       "description": "Description du Projet",
       "uploadDocuments": "Télécharger des Documents",
-      "dragDrop": "Glissez-déposez les fichiers ici, ou cliquez pour sélectionner des fichiers",
+      "dragDrop": "Glissez et déposez des fichiers ici, ou cliquez pour sélectionner des fichiers",
       "fileTypes": "Types de fichiers supportés: PDF, DOCX, XLSX",
       "maxSize": "Taille maximale de fichier: 10MB",
       "impactSummary": "Résumé de l'Impact",
@@ -126,7 +205,7 @@
       "steps": {
         "upload": "Documents Téléchargés",
         "processing": "Traitement des Documents",
-        "scoring": "Notation IA",
+        "scoring": "Notation par IA",
         "review": "Révision Finale",
         "complete": "Score Prêt"
       },
@@ -138,7 +217,7 @@
         "impact": "Impact Environnemental",
         "transparency": "Transparence",
         "viability": "Viabilité Économique",
-        "mint": "Créer le Token GRASS",
+        "mint": "Créer un Token GreenAsset",
         "minting": "Création en Cours...",
         "success": "Token Créé avec Succès",
         "viewToken": "Voir le Token"
@@ -159,12 +238,34 @@
       "listed": "Listé"
     }
   },
+  "footer": {
+    "tagline": "Transformer des projets environnementaux en actifs numériques transparents",
+    "resources": "Ressources",
+    "documentation": "Documentation",
+    "analytics": "Analytique",
+    "sustainability": "Durabilité",
+    "company": "Entreprise",
+    "about": "À Propos",
+    "contact": "Contact",
+    "privacy": "Politique de Confidentialité",
+    "terms": "Conditions d'Utilisation",
+    "connect": "Se Connecter",
+    "rights": "Tous droits réservés",
+    "blockchain": "Blockchain",
+    "poweredBy": "Propulsé par"
+  },
+  "notFound": {
+    "title": "Page Non Trouvée",
+    "message": "La page que vous recherchez n'existe pas ou a été déplacée.",
+    "back": "Retour",
+    "home": "Accueil"
+  },
   "errors": {
-    "general": "Une erreur est survenue",
+    "general": "Quelque chose s'est mal passé",
     "network": "Erreur réseau. Veuillez vérifier votre connexion",
     "auth": "Erreur d'authentification",
     "notFound": "Page non trouvée",
-    "walletConnection": "Échec de connexion au wallet",
+    "walletConnection": "Échec de connexion du portefeuille",
     "transaction": "La transaction a échoué",
     "upload": "Le téléchargement du fichier a échoué",
     "form": "Veuillez vérifier le formulaire pour les erreurs"
