@@ -10,8 +10,7 @@ from collections import deque
 
 # Constants
 MODEL_ENDPOINT_NAME = "gpt-4.1-nano"
-
-ENDPOINT_URL = "https://openai-cit-cpm-ml-ai-trn.openai.azure.com/openai/deployments/GPT-40/chat/completions?api-version=2024-02-15-previe"
+ENDPOINT_URL = "https://api.openai.com/v1/chat/completions"
 HEADERS = {
     "Content-Type": "application/json",
     "Authorization": f"Bearer {os.environ.get('OPENAI_KEY')}"
