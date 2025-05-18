@@ -85,13 +85,13 @@ const ListingFormPage = () => {
     setCurrentStep(prev => Math.max(prev - 1, 0))
   }
 
-  if (!isConnected || !walletAddress) {
+  if (!isConnected() || !walletAddress) {
     return (
       <div className="space-y-8 text-center">
         <h1 className="gradient-text">{t('sell.title')}</h1>
         <Card className="p-8">
           <p className="text-emerald-300 mb-4">{t('sell.login')}</p>
-          <Button className="mx-auto">{t('wallet.connect')}</Button>
+          <Button className="mx-auto" onClick={() => navigate('/sell')}>{t('wallet.connect')}</Button>
         </Card>
       </div>
     )

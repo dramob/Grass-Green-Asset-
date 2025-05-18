@@ -127,6 +127,8 @@
   "buy": {
     "title": "Buy Green Assets",
     "subtitle": "Discover and invest in tokenized environmental projects",
+    "viewDetails": "View Details",
+    "createYourOwn": "Create Your Own Project",
     "filters": {
       "title": "Filters",
       "price": "Price",

@@ -1,6 +1,6 @@
 import { useTranslation } from 'react-i18next'
 import { SDGVerificationResult } from '../../types/sdg'
-import { CircleCheck, CircleAlert, CircleX, ExternalLink } from 'lucide-react'
+import { CheckCircle, AlertCircle, XCircle, ExternalLink } from 'lucide-react'
 import SDGIcon from './SDGIcon'
 import { SDGGoal } from '../../types/sdg'
 
@@ -27,9 +27,9 @@ const VerificationResults: React.FC<VerificationResultsProps> = ({
   }
 
   const getScoreIcon = (score: number) => {
-    if (score >= 80) return <CircleCheck className="text-emerald-400" />
-    if (score >= 50) return <CircleAlert className="text-yellow-400" />
-    return <CircleX className="text-red-400" />
+    if (score >= 80) return <CheckCircle className="text-emerald-400" />
+    if (score >= 50) return <AlertCircle className="text-yellow-400" />
+    return <XCircle className="text-red-400" />
   }
 
   const getConfidenceBadge = (level: 'high' | 'medium' | 'low') => {

@@ -119,7 +119,7 @@ const SellPage = () => {
         <Card className="p-8 text-center">
           <div className="flex flex-col items-center justify-center space-y-4">
             <p className="text-emerald-300 mb-4">{t('sell.login')}</p>
-            <Button>{t('wallet.connect')}</Button>
+            <Button onClick={() => navigate('/sell/new')}>{t('wallet.connect')}</Button>
           </div>
         </Card>
       )}

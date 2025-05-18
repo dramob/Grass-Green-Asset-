@@ -18,6 +18,9 @@ dotenv.config();
 // Import routes
 const verificationRoutes = require('./routes/verificationRoutes');
 const certificationRoutes = require('./routes/certificationRoutes');
+const tokenizationRoutes = require('./routes/tokenizationRoutes');
+const projectRoutes = require('./routes/projectRoutes');
+const oracleRoutes = require('./routes/oracleRoutes');
 
 // Initialize express app
 const app = express();
@@ -41,6 +44,9 @@ app.get('/', (req, res) => {
 // API routes
 app.use('/api/verification', verificationRoutes);
 app.use('/api/certification', certificationRoutes);
+app.use('/api/tokenization', tokenizationRoutes);
+app.use('/api/projects', projectRoutes);
+app.use('/api/oracle', oracleRoutes);
 
 // Error handling middleware
 app.use((err, req, res, next) => {
@@ -59,6 +65,17 @@ app.listen(PORT, () => {
   console.log('- GET  /');
   console.log('- POST /api/verification');
   console.log('- POST /api/certification');
+  console.log('- POST /api/tokenization/issue');
+  console.log('- POST /api/tokenization/authorize');
+  console.log('- POST /api/tokenization/mint');
+  console.log('- GET  /api/tokenization/holdings/:address');
+  console.log('- POST /api/projects');
+  console.log('- GET  /api/projects');
+  console.log('- GET  /api/projects/:projectId');
+  console.log('- POST /api/projects/:projectId/verify');
+  console.log('- POST /api/projects/:projectId/purchase');
+  console.log('- GET  /api/oracle/price');
+  console.log('- GET  /api/oracle/xrpl');
 });
 
 module.exports = app;

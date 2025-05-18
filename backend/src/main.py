@@ -20,6 +20,11 @@ from models.project import (
 # Import storage service
 from services.storage.project_storage import ProjectStorageService
 
+# Import API routers
+from services.api.certification_api import router as certification_router
+from services.api.token_api import router as token_router
+from services.api.oracle_api import router as oracle_router
+
 # Set up logging
 logging.basicConfig(
     level=logging.INFO,
@@ -44,7 +49,7 @@ project_storage = ProjectStorageService()
 
 app = FastAPI(
     title="Green Asset API",
-    description="API for Green Asset Platform with SDG claim verification",
+    description="API for Green Asset Platform with SDG claim verification and MP Token issuance",
     version="0.1.0"
 )
 
@@ -60,6 +65,11 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+# Include API routers
+app.include_router(certification_router)
+app.include_router(token_router)
+app.include_router(oracle_router)
 
 # API Request/Response Models
 class SDGClaimRequest(BaseModel):
