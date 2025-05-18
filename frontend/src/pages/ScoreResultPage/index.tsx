@@ -1,11 +1,12 @@
 import { useState, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { useTranslation } from 'react-i18next'
-import { CheckCircle2, Clock, ArrowRight, TrendingUp } from 'lucide-react'
+import { CheckCircle2, Clock, ArrowRight, TrendingUp, Leaf, DollarSign } from 'lucide-react'
 import Card from '../../components/ui/Card'
 import Button from '../../components/ui/Button'
 import VerificationResults from '../../components/ui/VerificationResults'
 import { verificationApi } from '../../services/api'
+import projectService, { CertificationResult } from '../../services/projectService'
 import { ProjectVerification, SDGClaim } from '../../types/sdg'
 
 const ScoreResultPage = () => {
@@ -15,7 +16,9 @@ const ScoreResultPage = () => {
   const [currentStep, setCurrentStep] = useState<number>(0)
   const [isLoading, setIsLoading] = useState<boolean>(true)
   const [scoringResult, setScoringResult] = useState<ProjectVerification | null>(null)
+  const [certificationResult, setCertificationResult] = useState<CertificationResult | null>(null)
   const [error, setError] = useState<string | null>(null)
+  const [showCertification, setShowCertification] = useState<boolean>(false)
   
   // Mock steps for the scoring process
   const scoringSteps = [
@@ -104,10 +107,53 @@ const ScoreResultPage = () => {
     runVerification()
   }, [draftId])
   
-  const handleMintClick = () => {
-    // In a real app, this would mint the token on XRPL
-    // For now, we'll just navigate back to the sell page
-    navigate('/sell')
+  const handleMintClick = async () => {
+    if (!scoringResult) return;
+    
+    try {
+      setShowCertification(true);
+      setIsLoading(true);
+      
+      // Get project data from session storage
+      let projectData = null;
+      try {
+        const savedData = sessionStorage.getItem(`draft_${draftId}`);
+        if (savedData) {
+          projectData = JSON.parse(savedData);
+        }
+      } catch (e) {
+        console.warn('Failed to retrieve project data from session storage:', e);
+      }
+      
+      if (!projectData) {
+        // Fallback data
+        projectData = {
+          companyName: scoringResult.companyName,
+          projectName: "Green Project",
+          description: "Sustainable initiative for SDG goals",
+          sdgClaims: scoringResult.results.map(r => ({
+            sdgId: r.sdgId,
+            checked: true,
+            justification: r.evidenceSummary.substring(0, 100)
+          }))
+        };
+      }
+      
+      // Call the certification API
+      const result = await projectService.certifyProject(
+        projectData.companyName,
+        projectData.projectName,
+        projectData.description,
+        projectData.sdgClaims
+      );
+      
+      setCertificationResult(result);
+      setIsLoading(false);
+    } catch (err) {
+      console.error('Error during certification:', err);
+      setError('Error during certification process');
+      setIsLoading(false);
+    }
   }
   
   if (error) {
@@ -181,8 +227,8 @@ const ScoreResultPage = () => {
           </div>
         )}
         
-        {/* Results */}
-        {!isLoading && scoringResult && (
+        {/* Verification Results */}
+        {!isLoading && scoringResult && !showCertification && (
           <div className="space-y-6">
             <div className="text-center mb-8">
               <div className="text-4xl font-bold text-emerald-400 mb-2">
@@ -204,7 +250,84 @@ const ScoreResultPage = () => {
                 variant="primary"
                 size="lg"
               >
-                {t('sell.scoring.result.mint')}
+                Calculate Tokens to Mint
+              </Button>
+            </div>
+          </div>
+        )}
+        
+        {/* Certification Results */}
+        {!isLoading && showCertification && certificationResult && (
+          <div className="space-y-6">
+            <div className="text-center mb-8">
+              <div className="text-4xl font-bold text-emerald-400 mb-2">
+                {certificationResult.tokenAmount} Tokens
+              </div>
+              <p className="text-gray-300">
+                Ready to mint on the XRP Ledger
+              </p>
+            </div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <Card className="p-6 border-emerald-400/20 bg-emerald-900/10">
+                <div className="flex items-start">
+                  <div className="mr-4 p-2 bg-emerald-900/40 rounded-full">
+                    <Leaf className="h-6 w-6 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-emerald-300 mb-2">Emission Reductions</h3>
+                    <div className="text-2xl font-bold text-white">
+                      {certificationResult.emissionReductions.toLocaleString()} tons
+                    </div>
+                    <p className="text-gray-300 text-sm mt-1">
+                      Estimated Annual Carbon Reduction
+                    </p>
+                  </div>
+                </div>
+              </Card>
+              
+              <Card className="p-6 border-emerald-400/20 bg-emerald-900/10">
+                <div className="flex items-start">
+                  <div className="mr-4 p-2 bg-emerald-900/40 rounded-full">
+                    <TrendingUp className="h-6 w-6 text-emerald-400" />
+                  </div>
+                  <div>
+                    <h3 className="font-medium text-emerald-300 mb-2">Geometric Mean Score</h3>
+                    <div className="text-2xl font-bold text-white">
+                      {certificationResult.geometricMeanScore.toFixed(2)}/10
+                    </div>
+                    <p className="text-gray-300 text-sm mt-1">
+                      Combined SDG Verification Score
+                    </p>
+                  </div>
+                </div>
+              </Card>
+            </div>
+            
+            <Card className="p-4 bg-emerald-900/20 mt-6">
+              <h3 className="font-medium text-emerald-300 mb-2">Token Calculation</h3>
+              <p className="text-gray-300">
+                <code>tokens = emissions × (score ÷ 10)</code>
+              </p>
+              <p className="text-gray-300 mt-2">
+                <code>{certificationResult.tokenAmount} = {certificationResult.emissionReductions} × ({certificationResult.geometricMeanScore.toFixed(2)} ÷ 10)</code>
+              </p>
+            </Card>
+            
+            <Card className="p-4 bg-emerald-900/20 mt-4">
+              <h3 className="font-medium text-emerald-300 mb-2">Project Industry</h3>
+              <p className="text-gray-300">
+                {certificationResult.industry || "Sustainable Development"}
+              </p>
+            </Card>
+            
+            <div className="flex justify-center mt-8">
+              <Button 
+                onClick={() => navigate('/sell')}
+                variant="primary"
+                size="lg"
+              >
+                Mint Tokens on XRPL
               </Button>
             </div>
           </div>

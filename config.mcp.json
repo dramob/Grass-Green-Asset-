@@ -1,0 +1,19 @@
+{
+  "services": {
+    "braveSearch": {
+      "apiKey": "BSA-tqnvb7tuyhrztfrdcvwhtuwz",
+      "endpoint": "https://api.search.brave.com/res/v1/web/search",
+      "maxResults": 10,
+      "timeout": 30000
+    }
+  },
+  "mcpServers": {
+    "brave-search": {
+      "command": "npx",
+      "args": ["-y", "@modelcontextprotocol/server-brave-search"],
+      "env": {
+        "BRAVE_API_KEY": "BSA-tqnvb7tuyhrztfrdcvwhtuwz"
+      }
+    }
+  }
+}

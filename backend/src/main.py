@@ -36,6 +36,8 @@ if not os.getenv("OPENAI_KEY"):
 
 # Import the LLM certification module
 from controllers.LLMCertification import scrape_brave_and_condense as scrape_and_condense
+# Import the MCP-based search and verification
+from controllers.scrape_and_verify import scrape_brave_and_condense_mcp
 
 # Initialize services
 project_storage = ProjectStorageService()
@@ -339,13 +341,24 @@ async def verify_sdg_claims(
             # Extract keywords from the justification
             keywords = [w for w in claim.justification.split() if len(w) > 3][:10]
             
-            # Use the Brave search and condense function
-            result = await scrape_and_condense(
-                query=query,
-                num_results=5,  # Limit to 5 results per claim for efficiency
-                sdg_goal=claim.sdgId,
-                keywords=keywords
-            )
+            # First try using MCP-based search
+            try:
+                result = await scrape_brave_and_condense_mcp(
+                    query=query,
+                    num_results=5,  # Limit to 5 results per claim for efficiency
+                    sdg_goal=claim.sdgId,
+                    keywords=keywords
+                )
+                logger.info(f"Using MCP-based Brave search for SDG {claim.sdgId}")
+            except Exception as e:
+                logger.warning(f"MCP search failed, falling back to direct API: {e}")
+                # Fall back to original search if MCP fails
+                result = await scrape_and_condense(
+                    query=query,
+                    num_results=5,  # Limit to 5 results per claim for efficiency
+                    sdg_goal=claim.sdgId,
+                    keywords=keywords
+                )
             
             # Process the result
             if result["success"]:

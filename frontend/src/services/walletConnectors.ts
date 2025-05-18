@@ -37,10 +37,16 @@ export class XamanConnector extends BaseWalletConnector {
   private address: string | null = null;
   private xummSDK: any = null;
   private apiKey: string;
+  private redirectUrl: string;
   
   constructor() {
     super('Xaman', '/wallet-icons/xumm.svg');
     this.apiKey = walletConfig.xaman.apiKey;
+    this.redirectUrl = walletConfig.xaman.redirectUrl;
+    console.log('XamanConnector initialized with:', { 
+      apiKey: this.apiKey,
+      redirectUrl: this.redirectUrl
+    });
     this.supportsQRCode = true;
     this.supportsDeepLink = true;
   }
@@ -58,8 +64,10 @@ export class XamanConnector extends BaseWalletConnector {
           throw new Error('Xaman SDK not loaded. Make sure the script is included in your HTML.');
         }
         
-        // Create a new Xumm SDK instance
-        window.xumm = new window.Xumm(this.apiKey);
+        // Create a new Xumm SDK instance with redirect URL
+        window.xumm = new window.Xumm(this.apiKey, {
+          redirectUrl: this.redirectUrl
+        });
       }
       
       this.xummSDK = window.xumm;

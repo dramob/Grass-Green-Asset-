@@ -25,9 +25,9 @@ const Header = () => {
           <div className="flex-shrink-0 flex items-center">
             <Link to="/" className="flex items-center">
               <img 
-                src="/grass-icon.svg" 
+                src="/grass_logo.png" 
                 alt="Grass Green Asset" 
-                className="h-8 w-8 mr-2" 
+                className="h-8 w-auto mr-2" 
               />
               <span className="font-bold text-xl text-transparent bg-clip-text bg-gradient-to-r from-green-300 to-emerald-400">
                 GreenAsset

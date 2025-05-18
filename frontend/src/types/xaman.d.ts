@@ -7,7 +7,7 @@ declare global {
 }
 
 interface XummConstructor {
-  new (apiKey: string): XummSDK;
+  new (apiKey: string, options?: { redirectUrl?: string }): XummSDK;
 }
 
 interface XummSDK {
